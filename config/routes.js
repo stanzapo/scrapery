@@ -19,7 +19,7 @@ module.exports = function(router) {
     res.render("saved");
   });
 
-  // This route handles scraping more articles to add to our db
+  // This route handles scraping more articles
   router.get("/api/fetch", function(req, res) {
 
     // This method inside the headlinesController will try and scrap new articles

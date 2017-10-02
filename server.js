@@ -1,8 +1,3 @@
-// Web Scraper Homework Solution Example
-// (be sure to watch the video to see
-// how to operate the site in the browser)
-// -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
-
 // Require our dependencies
 var express = require("express");
 var mongoose = require("mongoose");
@@ -40,7 +35,7 @@ app.use(router);
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var db = process.env.MONGODB_URI || "mongodb://localhost/scrapery";
 
 // Connect mongoose to our database
 mongoose.connect(db, function(error) {

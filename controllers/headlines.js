@@ -1,6 +1,3 @@
-// Controller for our headlines
-// ============================
-
 // Bring in our scrape script and makeDate scripts
 var scrape = require("../scripts/scrape");
 var makeDate = require("../scripts/date");
@@ -21,14 +18,7 @@ module.exports = {
         articles[i].date = makeDate();
         articles[i].saved = false;
       }
-      // Headline.collection lets us access the native Mongo insertMany method.
-      // We're using this instead of the mongoose create method because here we may
-      // specify whether this is an ordered or unordered insert
-      // https://docs.mongodb.com/manual/reference/method/db.collection.insertMany/
-      // unordered inserts have the benefit of being faster, and errors are logged instead
-      // of thrown. This means that even if some of our inserts fail, the rest will continue
-      // We expect an insert to fail whenever we have a duplicate headline since that property
-      // is marked unique on the mongoose model
+      
       Headline.collection.insertMany(articles, { ordered: false }, function(err, docs) {
         cb(err, docs);
       });
